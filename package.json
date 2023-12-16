@@ -1,0 +1,17 @@
+{
+  "name": "query-gen",
+  "version": "1.0.0",
+  "repository": "https://github.com/EmmanuelPonnudurai/query-gen.git",
+  "author": "Emmanuel Ponnudurai",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@graphql-tools/load": "^8.0.1",
+    "@types/node": "^20.10.4",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@graphql-tools/code-file-loader": "^8.0.3",
+    "graphql": "^16.8.1"
+  }
+}
