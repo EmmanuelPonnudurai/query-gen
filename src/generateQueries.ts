@@ -31,14 +31,13 @@ interface FragmentItem {
   fragmentNames?: string[];
 }
 
-const GENERATED_QUERIES_FOLDER_PATH_API_PROJECT =
-  "../../../Symphony.Api/src/Symphony/Api/wwwroot/GraphqlQueries/";
+const GENERATED_QUERIES_FOLDER_PATH = "GraphqlQueries/";
 const GENERATED_QUERIES_FILE_NAME = "generatedQueries.json";
 const GENERATED_FRAGMENTS_FILE_NAME = "generatedFragments.json";
 const ALL_FILES_PATH_EXCLUDING_TESTS = "./app/**/!(*.test)*.{ts,tsx}";
 // const ALL_FILES_PATH = './app/**/*.{ts,tsx}';
 // leaving some testing paths to debug (helps to run faster)
-// const SAMPLE_PATH = './app/pages/Records/containers/TestTypeContainers/WebDataContainer/queries.ts';
+// const SAMPLE_PATH = './SamplePath/queries.ts';
 
 /** Add __typename field to all fields. This is done by apollo automatically so we need to do this here as well. This is set globally as an option to InMemoryCache.
  * Switching this behavior off results in issues as apollo does not convert the response from backend into the right type when resolving on client side.
@@ -118,7 +117,7 @@ const generateJsonQueriesFile = (queries: QueryItem[]) => {
   try {
     const jsonString = JSON.stringify(queries, undefined, 2);
     writeAndSaveFile(
-      GENERATED_QUERIES_FOLDER_PATH_API_PROJECT + GENERATED_QUERIES_FILE_NAME,
+      GENERATED_QUERIES_FOLDER_PATH + GENERATED_QUERIES_FILE_NAME,
       jsonString
     );
   } catch (e) {
@@ -131,7 +130,7 @@ const generateJsonFragmentsFile = (fragments: FragmentItem[]) => {
   try {
     const jsonString = JSON.stringify(fragments, undefined, 2);
     writeAndSaveFile(
-      GENERATED_QUERIES_FOLDER_PATH_API_PROJECT + GENERATED_FRAGMENTS_FILE_NAME,
+      GENERATED_QUERIES_FOLDER_PATH + GENERATED_FRAGMENTS_FILE_NAME,
       jsonString
     );
   } catch (e) {
@@ -294,7 +293,7 @@ const generateDocuments = (logStatistics = true, logFull = false) => {
             console.log("Awesome! No duplicate fragments");
           }
           console.log(
-            "Please do check API project to see if queries are generated and DO NOT forget to commit them !"
+            "Please do check to see if queries are generated and DO NOT forget to commit them !"
           );
           console.log("==============");
         }
